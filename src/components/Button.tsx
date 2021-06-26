@@ -1,29 +1,32 @@
-import {useState} from "react";
+import { ButtonHTMLAttributes } from 'react'
+// import {useState} from "react";
+import '../styles/button.scss'
 
-type ButtonProps = {
-    children?: string,
-    type?: string
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 export function Button(props: ButtonProps) {
+    return (
+        <button className='button' {...props} />
+    )
+
     /**
      * react does not know when a variables changes
      * only when a STATE changes
      */
     // let counter = 0
-    const [counter, setCounter] = useState(0)
+    // const [counter, setCounter] = useState(0)
 
-    function increment() {
-        setCounter(counter + 1)
+    // function increment() {
+        // setCounter(counter + 1)
         // not work because of CLOJURES (TODO: study clojure)
         // console.log(counter)
-    }
-    return (
-        <button type={props.type || 'submit'}
-            onClick={increment}>
-            { props.children || 'Botão' } - {counter}
-        </button>
-    )
+    // }
+
+    // return (
+    //     <button className='button' type={props.type || 'submit'}>
+    //         { props.children || 'Botão' } - {counter}
+    //     </button>
+    // )
 }
 
 /**
